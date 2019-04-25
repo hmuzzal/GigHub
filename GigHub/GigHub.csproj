@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201904240912397_PopulatesGenresTable.Designer.cs">
       <DependentUpon>201904240912397_PopulatesGenresTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904250637292_AddedForeignKeyProperties.cs" />
+    <Compile Include="Migrations\201904250637292_AddedForeignKeyProperties.Designer.cs">
+      <DependentUpon>201904250637292_AddedForeignKeyProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904240912397_PopulatesGenresTable.resx">
       <DependentUpon>201904240912397_PopulatesGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904250637292_AddedForeignKeyProperties.resx">
+      <DependentUpon>201904250637292_AddedForeignKeyProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
