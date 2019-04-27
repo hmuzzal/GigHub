@@ -107,3 +107,27 @@ h6,
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
+
+/*Page-level Styels*/
+.gigs {
+    list-style: none;
+    margin-top: 40px;
+   
+}
+.gigs > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.gigs > li .date {
+    background: red;
+    color: white;
+    text-align: center;
+    width: 60px;
+}
+
+.gigs > li .details {
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
