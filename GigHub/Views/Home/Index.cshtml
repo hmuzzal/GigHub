@@ -12,14 +12,16 @@
                 <div class="month">
                     @gig.DateTime.ToString("MMM")
                 </div>
+                @gig.DateTime.ToString("dd")
                 <div class="day">
-                    @gig.DateTime.ToString("dd")
+                 
                 </div>
             </div>
             <div class="details">
                 <span class="artist">
                     @gig.Artist.Name
                 </span>
+               
                 <span class="genre">
                     @gig.Genre.Name
                 </span>
