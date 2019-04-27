@@ -6,11 +6,11 @@ namespace GigHub.ViewModels
 {
     public class FutureDate : ValidationAttribute
     {
-        public override bool IsValid(Object value)
+        public override bool IsValid(object value)
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-                "dd mmm yyyy",
+                "dd/mm/yyyy",
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);
