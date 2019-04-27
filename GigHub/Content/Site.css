@@ -22,8 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
-
+span.field-validation-error {
+    color: red;
+}
 /*Bootstrap Overrides*/
+.alert {
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
 .navbar-inverse {
     background-color: #ff4342;
     border-color: #ff4342;
