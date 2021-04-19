@@ -1,9 +1,4 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
+﻿/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -28,31 +23,46 @@ span.field-validation-error {
 }
 /*Bootstrap Overrides*/
 .alert {
-    -ms-border-radius: 9px;
     border-radius: 9px;
 }
 
-.navbar-inverse {
+.dropdown-menu.show {
+    margin-left: -5px;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+    footer a:hover {
+        color: #252424;
+        text-decoration: none
+    }
+
+
+footer {
+    background-color: #ff4342;
+    color: #ffffff
+}
+.navbar-color {
     background-color: #ff4342;
     border-color: #ff4342;
 }
 
-    .navbar-inverse .navbar-brand {
-        color: #fff;
-    }
+.navbar-light .navbar-brand {
+    color: #ffffff;
+}
 
-    .navbar-inverse .navbar-nav > li > a {
-        color: #fff;
-    }
-
-    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-        color: #fff;
-        background-color: #ea4645;
-    }
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: #ffffff;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
 
 .dropdown-menu {
-    box-shadow: none;
     -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .navbar-inverse .navbar-nav > .dropdown > a.caret {
@@ -92,7 +102,6 @@ h6,
 .form-control {
     font-size: 17px;
     padding: 2px 5px;
-    -ms-border-radius: 10px;
     border-radius: 10px;
 }
 
@@ -102,31 +111,35 @@ h6,
     }
 
 .btn {
-    font-size: 17px;
-    padding: 7px 20px;
-    -ms-border-radius: 9px;
+/*    font-size: 17px;
+    padding: 7px 20px;*/
     border-radius: 9px;
+}
+
+.btn-default {
+    background: white;
+    color: black;
+    border: 1px solid gray;
 }
 
 /*Page-level Styels*/
 .gigs {
     list-style: none;
     margin-top: 40px;
-    margin-left: 40%;
+    
+}
+    .gigs > li {
+        position: relative;
+        margin-bottom: 30px;
+    }
 
-   
-}
-.gigs > li {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.gigs > li .date {
-    background: red;
-    color: white;
-    text-align: center;
-    width: 60px;
-}
+        .gigs > li .date {
+            background: red;
+            color: white;
+            text-align: center;
+            width: 60px;
+            border-radius: 9px;
+        }
 
 .gigs > li .date .month {
     text-transform: uppercase;
@@ -150,4 +163,33 @@ h6,
 .gigs >li .details .artist {
     font-weight: bold;
     display: block;
+}
+
+.gigs >li .details .genre {
+    font-size: 15px;
+}
+
+.gigs > li .actions {
+    display: none;
+}
+
+.gigs > li:hover .actions {
+    display: block;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 6px;
 }

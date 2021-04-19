@@ -15,6 +15,8 @@ namespace GigHub.Models
         public string Venue { get; set; }
 
         public Genre Genre { get; set; }
+
+        public bool IsCanceled { get; set; }
         [Required]
         public byte GenreId { get; set; }
 

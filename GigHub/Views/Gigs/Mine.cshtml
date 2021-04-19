@@ -1,0 +1,76 @@
+﻿@model IEnumerable<GigHub.Models.Gig>
+@{
+    ViewBag.Title = "My Upcoming Gigs";
+}
+
+<h4 class="mt-4">My Upcoming Gigs</h4>
+<ul class="gigs">
+    @foreach (var gig in Model)
+    {
+        <li>
+            <div class="date">
+                <div class="month">
+                    @gig.DateTime.ToString("MMM")
+                </div>
+                <div class="day">
+                    @gig.DateTime.ToString("dd")
+                </div>
+            </div>
+            <div class="details">
+                <span class="artist">
+                    @gig.Artist.Name
+                </span>  <span class="genre">
+                    @gig.Genre.Name
+                </span>
+                <div class="actions">
+                    <a href="@Url.Action("Update","Gigs", new{id=gig.Id})">Edit</a> |
+                    <a href="#" class="js-cancel-gig" data-gig-id="@gig.Id">Cancel</a>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            $(".js-cancel-gig").click(function(e) {
+                var link = $(e.target);
+                bootbox.dialog({
+                    title: 'Confirm',
+                    message: "<p>Are you sure you want to cancel this gig?</p>",
+                    size: 'large',
+                    buttons: {
+                        no: {
+                            label: "No",
+                            className: 'btn-default',
+                            callback: function() {
+                                bootbox.hideAll();
+                            }
+                        },
+                        yes: {
+                            label: "Yes",
+                            className: 'btn-danger',
+                            callback: function(){
+                                $.ajax({
+                                        url: "/api/gigs/" + link.attr("data-gig-id"),
+                                        method: "DELETE"
+                                    })
+                                    .done(function() {
+                                        link.parents("li").fadeOut(function() {
+                                            $(this).remove();
+                                        });
+                                    })
+                                    .fail(function() {
+                                        alert("Something failed");
+                                    });
+
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

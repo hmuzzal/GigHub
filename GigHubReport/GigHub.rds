@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="GigHub">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DESKTOP-Q7FD9QD\SQLEXPRESS;Initial Catalog=GigHub</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source GigHub</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>4f1ae259-b3ce-47b6-b4d1-6d97f5633698</DataSourceID>
+</RptDataSource>

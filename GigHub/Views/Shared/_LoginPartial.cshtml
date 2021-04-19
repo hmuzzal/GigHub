@@ -1,32 +1,36 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+    <form >
 
-<ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            @*@User.Identity.GetUserName()*@
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li> <a class="dropdown-item" href="#">Gigs I'm Going</a></li>
-            <li>
-                <a class="dropdown-item" href="#">Artists I'm Following</a>
+    </form>
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret">@User.Identity.GetUserName()</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li> <a class="dropdown-item" href="@Url.Action("Mine","Gigs")">My Upcoming Gigs</a></li>
+                    <li> <a class="dropdown-item" href="@Url.Action("Attending","Gigs")">Gigs I'm Going</a></li>
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("Attending","Gigs")">Artists I'm Following</a>
+                    </li>  
+                    <li>
+                        <button class="btn btn-link text-dark text-decoration-none dropdown-item" type="submit">Log Off</button>
+                    </li>
+                </ul>
             </li>
-            <li><div class="dropdown-divider"></div></li>
-            <li> <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
         </ul>
-    </li>
-</ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" , @class= "text-white text-decoration-none" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class= "text-white ml-3 text-decoration-none" })</li>
     </ul>
 }
