@@ -54,11 +54,23 @@ namespace GigHub.Controllers
             var gigsViewModel = new GigsViewModel
             {
                 UpcomingGigs = gigs,
-                ShowActions = User.Identity.IsAuthenticated
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "Gigs I'm Attending"
+
             };
 
             return View("Gigs", gigsViewModel);
         }
+
+
+        [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var followees = _context.Users.Include(u => u.Followees).Where(u => u.Id == userId);
+            return View(followees);
+        }
+
 
         [Authorize]
         public ActionResult Update(int id)
@@ -124,13 +136,12 @@ namespace GigHub.Controllers
             }
 
             var userId = User.Identity.GetUserId();
-            var gig = _context.Gigs.Single(g => g.Id == viewModel.Id && g.ArtistId == userId);
+            var gig = _context.Gigs
+                .Include(g => g.Attendances.Select(a => a.Attendee))
+                .Single(g => g.Id == viewModel.Id && g.ArtistId == userId);
 
+            gig.Modify(viewModel.GetDateTime(), viewModel.Venue, viewModel.Genre);
 
-            gig.DateTime = viewModel.GetDateTime();
-            gig.GenreId = viewModel.Genre;
-            gig.Venue = viewModel.Venue;
-            //_context.Gigs.AddOrUpdate(gig);
             _context.SaveChanges();
             return RedirectToAction("Mine", "Gigs");
         }

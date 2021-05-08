@@ -1,0 +1,18 @@
+﻿@model IQueryable<GigHub.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Artist I'm Following";
+}
+
+<h4 class="mt-4">@ViewBag.Title</h4>
+<ul class="gigs">
+    @foreach (var user in Model)
+    {
+        <li>
+            <div class="details border border-info rounded p-1">
+                <span class="artist">
+                    @user.Name <span class="badge badge-info ml-4">Following</span>
+                </span>
+            </div>
+        </li>
+    }
+</ul>
